@@ -19,6 +19,7 @@ development tools.
   Gulp & eslint & babel 이 세가지는 프로젝트 관리할 때 꼭 쓸 것!!
   
 3. ~~리터럴과 변수, 상수, 데이터 타입~~
+
   JS의 기본적인 데이터 타입에 대해서 설명하며 요약 부문에 나와있는 **call by value** 와 **call by reference** 는 중요하다!!
 
 4. 제어문
