@@ -7,6 +7,7 @@ development tools.
 1. ~~첫 번째 어플리케이션~~
 
   Paper.js 로 간단한 canvas 그리기
+
 2. ~~개발 도구~~
 
   Git 은 어느정도 능숙하게 사용중이고 Node 런타임에 대한 이해도 어느정도 숙지했다
@@ -16,7 +17,7 @@ development tools.
 
   Gulp 는 빌드 **자동화** 도구이며 수많은 플러그인이 있다 (gulp 없이도 할 수는 있다)
   Gulp & eslint & babel 이 세가지는 프로젝트 관리할 때 꼭 쓸 것!!
-  
+
 3. 리터럴과 변수, 상수, 데이터 타입
 
 4. 제어문
