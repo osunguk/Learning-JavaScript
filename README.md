@@ -50,8 +50,6 @@ development tools.
    }
    아래와 같다
    label = isPrime(n) ? 'prime' : 'non-prime'
-
-
    
    if(!options) options = {}  
    다음과 같다 
