@@ -57,6 +57,53 @@ development tools.
 
 6. 함수
 
+   > 함수도 객체이다. 변수 할당, 객체 프로퍼티, 배열 요소로 사용 가능하다
+
+   func()은 함수 호출이고 func 은 함수 참조 (객체처럼 사용할 수 있다) ( 매개변수 != 변수 )
+   확산연산자는 유용한 기능이다 (...)
+
+   ```javascript
+   const test = {
+       a() {
+           return "hello"
+       },
+       b: 'test',
+       c: 123,
+   }
+   ```
+
+   Object의 요소에 함수를 바로 넣을 수 있다
+   **this, call, apply, bind** 개념 __꼭꼭꼭!!__ 숙지하기
+
+   > 함수 길이가 깊을 때엔 this 보다는 self 나 that 을 사용하면 코드의 복잡도를 낮출 수 있다
+
+   __this__ : 호출한 메서드를 소유하는 객체
+   __call__ : 모든 함수에서 사용할 수 있으며, this를 특정 값으로 지정할 수 있다
+
+   ```javascript
+   const bruce = { name : "Bruce"}
+   
+   function greeting() { // 아무것도 연결되어 있지 않지만 this를 사용함
+       return `Hello, I'm ${this.name}`
+   }
+   
+   greet();				// "Hello, I'm undefined"
+   greet.call(bruce);		// "Hello, I'm Bruce"
+   
+   // call 의 첫번째 매개변수는 this 가 사용하고 더 있으면 호출하는 함수로 전달된다
+   function update(birthday, occupation){
+       this.birthday = birthday
+       this.occupation = occupation
+   }
+   
+   update.call(bruce, 19940331, 'student')
+   update.apply(bruce, [19940331, 'student']) // apply 사용시
+   // bruce 는 이제 { name:"Bruce", birthday:19940331, occupation:"student"}
+   ```
+
+   __bind__ : 함수의 this 값을 영구적으로 설정할 수 있다
+   *주의 : 함수의 동작을 영구적으로 바꾸므로 찾기 어려운 버그의 원인이 될 수 있다, call apply 다른 bind로도 바꿀 수 없음. 고정으로 사용하고픈 요소만 지정할 때 사용해야한다*
+
 7. 스코프
 
 8. 배열과 배열처리
