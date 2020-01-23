@@ -106,6 +106,132 @@ development tools.
 
 7. 스코프
 
+   > 시야 또는 범위라고 보면 된다
+
+   선언은 식별자를 정하는것, 정의는 식별자와 값도 같이 정해주는 것
+
+   *스코프 종류와 유형*
+
+   - 전역 스코프
+     프로그램을 시작할 때 암시적으로 주어지는 스코프
+     전역 스코프가 나쁜건 아니지만 너무 의존성이 강하게 사용할 경우 후에 프로젝트가 커졌을 때 유지보수가 굉장히 힘들어 질 수있다
+
+   
+
+   - 블록 스코프
+
+   ```javascript
+   console.log('before block')
+   {
+       console.log('inside block')
+       const x = 3
+       console.log(x)			// 3
+   }
+   console.log(x)				// ReferenceError: x는 정의되지 않았습니다
+   ```
+
+   ~~현실적으론 잘 쓰지 않는 문법
+
+   
+
+   - 변수 숨기기
+
+   ```javascript
+   {
+       // 외부 블럭
+       let x = 'blue'
+       console.log(x)			// "blue"
+       {
+           // 내부 블럭
+           let x = 3
+           console.log(x)		// "3"
+       }
+       console.log(x)			// "blue"
+   }
+   console.log(x)			// "undefinded"; x는 스코프에 있지 않습니다
+   ```
+
+   내부 블럭의 x 는 외부 블럭에서 정의한 x와 이름만 같을 뿐 다른 변수이므로 외부 스코프의 x 를 숨기는 효과가 있다 *하지만 숨긴다고 해도 해당된 이름으로만 접근하지 못할 뿐 주소를 가지고있는 다른 방법으로 참조 가능하다*
+
+   - 클로저
+
+     > 함수가 특정 스코프에 접근할 수 있도록 의도적으로 그 스코프에서 정의하는 경우
+
+     ```javascript
+     let f;
+     {
+         let o = {note: "Safe"}
+         f = function() {
+             return o
+     	}
+     }
+     let oRef = f()
+     oRef.note = "Not so safe after all"
+     ```
+
+     **위와같이 일반적인 경우에는 접근할 수 없는 스코프에 크로저를 통해서 접근한 경우를 볼 수 있다**
+
+   - 즉시실행함수
+
+     ```javascript
+     const f = (function() {
+         let count = 0
+         return function() {
+             return `I have been called ${++count} time(s)`
+         }
+     })()
+     f()		// "I have been called 1 time(s)"
+     f()		// "I have been called 2 time(s)"
+     ```
+
+     밖에서 안에있는 count 변수를 컨트롤 할 수는 없지만 밖으로 내보낼 순 있다
+
+   - 호이스팅
+
+     > 함수 안에 있는 선언들을 모두 끌어올려서 해당 함수 유효 범위의 최상단에 선언하는 것
+
+     var는 변수의 선언은 맨 위로 끌어올라간다 그리고 정의만 그 자리에 남는다
+
+     ```javascript
+     a			// undefined
+     var a = 3
+     a			// 3
+     
+     b			// error
+     let b = 3
+     b
+     
+     c			// error
+     const c = 3
+     c
+     
+     var x = 3
+     if(x === 3){
+         var x = 2
+         console.log(x)		// 2
+     }
+     console.log(x)			// 2
+     ```
+
+     *따라서 var로는 스코프별로 같은 이름의 변수를 따로 사용할 수 없다*
+
+     **var 대신 let 쓰는걸 강력 추천**
+
+   - 사각지대
+
+     > let, const 가 선언되기 전까지의 공간
+     
+   - 스트릭트 모드
+
+     ```javascript
+     "use strict"
+     // js 파일 맨 앞에 써주면 된다
+     ```
+     
+     스트릭드 모드는 암시적으로 전역변수를 허용하지 않는다
+     
+     
+
 8. 배열과 배열처리
 
 9. 객체와 객체지향 프로그래밍
