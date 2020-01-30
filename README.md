@@ -234,6 +234,47 @@ development tools.
 
 8. 배열과 배열처리
 
+   ```javascript
+   // JS Array Method
+   
+   const sampleList = [1,2,3,4,5]
+   
+   // sampleList 변경됨
+   sampleList.push()			// 맨 뒤에 추가
+   sampleList.pop()			// 맨 뒤 요소 빼기
+   sampleList.unshift()		// 맨 앞에 추가
+   sampleList.shift()			// 맨 앞 요소 빼기
+   
+   sampleList.splice()			// 임의의 요소 추가 제거
+   sampleList.copyWithin()		// 요소 교체 (like 복붙)
+   sampleList.fill()			// 요소 채우기
+   
+   sampleList.sort()			// 정렬 (함수 사용 가능)
+   sampleList.reverse()		// 뒤집기
+   
+   // sampleList 변경 안됨
+   sampleList.concat()			// 뒤에 추가(여러 요소)
+   sampleList.slice()			// 원하는 만큼 자르기
+   
+   
+   // 배열 검색
+   sampleList.indexOf()		// 앞쪽 부터 인덱스 검색
+   sampleList.lastIndexOf()	// 뒤쪽 부터 인덱스 검색
+   sampleList.findIndex()		// 조건 검색 인덱스
+   sampleList.find()			// 조건 검색
+   
+   sampleList.some()			// 조건 충족 요소 확인
+   sampleList.every()			// 모든 요소 조건 충족 확인
+   
+   sampleList.map()			// 배열 요소 변경
+   sampleList.filter()			// 배열 요소 필터링
+   sampleList.reduce()			// 배열 자체 변형
+   
+   sampleList.join()			// 배열 요소 병합
+   ```
+
+   
+
 9. 객체와 객체지향 프로그래밍
 
 10. 맵과 셋
